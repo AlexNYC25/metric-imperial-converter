@@ -1,3 +1,5 @@
+const mathjs = require('mathjs');
+
 function ConvertHandler() {
 
 	// helper function to count the number of occurences of a character in a string
@@ -47,6 +49,7 @@ function ConvertHandler() {
 		if(countOccurrences(result, "/") > 0) {
 			// find the index of the division sign
 			let index = result.indexOf("/");
+			
 			// check if there is a number after the division sign
 			if(isNaN(result[index + 1])) {
 				return null;
@@ -68,7 +71,7 @@ function ConvertHandler() {
 			return 1;
 		}
 		
-		return parseFloat(result);
+		return mathjs.round(mathjs.evaluate(result), 5);
 	};
   
 	// finished inital version, needs tests written
@@ -93,6 +96,12 @@ function ConvertHandler() {
 
 		// check if the string is one of the valid units
 		if(result === "gal" || result === "l" || result === "mi" || result === "km" || result === "lbs" || result === "kg" || result === "GAL" || result === "L" || result === "MI" || result === "KM" || result === "LBS" || result === "KG") {
+			
+			// convert to upper case for liter only
+			if(result === "l" || result === "L") {
+				result = result.toUpperCase();
+			}
+			
 			return result;
 		}
 
@@ -109,7 +118,7 @@ function ConvertHandler() {
 		// check if the string is one of the valid units
 		if(initUnit === "gal" || initUnit === "l" || initUnit === "mi" || initUnit === "km" || initUnit === "lbs" || initUnit === "kg" || initUnit === "GAL" || initUnit === "L" || initUnit === "MI" || initUnit === "KM" || initUnit === "LBS" || initUnit === "KG") {
 			if(initUnit === "gal") {
-				result = "l";
+				result = "L";
 			} else if(initUnit === "l") {
 				result = "gal";
 			} else if(initUnit === "mi") {
