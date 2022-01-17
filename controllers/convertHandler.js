@@ -54,6 +54,13 @@ function ConvertHandler() {
 			if(isNaN(result[index + 1])) {
 				return null;
 			}
+
+			// checks too see if the number after the division sign is not a decimal number
+			for(let i = index + 1; i < result.length; i++) {
+				if(isNaN(result[i])) {
+					return null;
+				}
+			}
 		}
 
 		// check if there is a number after the decimal point
@@ -140,7 +147,9 @@ function ConvertHandler() {
 	let result = null;
 
 	// convert to lower case
-	unit = unit.toLowerCase();
+	if(unit !== null) {
+		unit = unit.toLowerCase();
+	}
 
 	// check if the string is one of the valid units
 	if(unit === "gal" || unit === "l" || unit === "mi" || unit === "km" || unit === "lbs" || unit === "kg" || unit === "GAL" || unit === "L" || unit === "MI" || unit === "KM" || unit === "LBS" || unit === "KG") {
