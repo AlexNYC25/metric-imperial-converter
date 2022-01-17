@@ -17,24 +17,21 @@ module.exports = function (app) {
 		let returnString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
 		if(initNum === null && initUnit === null) {
-			return res.status(400).json({error: 'invalid number and unit'});
+			return res.send('invalid number and unit');
 		} else if(initNum === null) {
-			return res.status(400).json({error: 'invalid number'});
+			return res.send('invalid number');
 		} else if(initUnit === null) {
-			return res.status(400).json({error: 'invalid unit'});
-		} else if(returnNum === null) {
-			return res.status(400).json({error: 'invalid number'});
-		} else if(returnUnit === null) {
-			return res.status(400).json({error: 'invalid unit'});
-		} else {
-			return res.status(200).json({
-				initNum: initNum,
-				initUnit: initUnit,
-				returnNum: returnNum,
-				returnUnit: returnUnit,
-				string: returnString
-			});
+			return res.send('invalid unit');
 		}
+
+		return res.status(200).json({
+			initNum: initNum,
+			initUnit: initUnit,
+			returnNum: returnNum,
+			returnUnit: returnUnit,
+			string: returnString
+		});
+		
 
 	});
 };
