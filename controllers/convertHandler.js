@@ -78,7 +78,7 @@ function ConvertHandler() {
 			return 1;
 		}
 		
-		return mathjs.round(mathjs.evaluate(result), 6);
+		return mathjs.round(mathjs.evaluate(result), 14);
 	};
   
 	// finished inital version, needs tests written
@@ -188,12 +188,15 @@ function ConvertHandler() {
 			result = initNum * galToL;
 		} else if(initUnit === "l") {
 			result = initNum / galToL;
+			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "mi") {
 			result = initNum * miToKm;
 		} else if(initUnit === "km") {
 			result = initNum / miToKm;
+			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "lbs") {
 			result = initNum * lbsToKg;
+			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "kg") {
 			result = initNum / lbsToKg;
 		}
