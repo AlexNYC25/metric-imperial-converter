@@ -14,6 +14,7 @@ module.exports = function (app) {
 		let initUnit = convertHandler.getUnit(conversionInput);
 		let returnNum = convertHandler.convert(initNum, initUnit);
 		let returnUnit = convertHandler.getReturnUnit(initUnit);
+		let returnString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
 		if(initNum === null && initUnit === null) {
 			return res.status(400).json({error: 'invalid number and unit'});
@@ -30,7 +31,8 @@ module.exports = function (app) {
 				initNum: initNum,
 				initUnit: initUnit,
 				returnNum: returnNum,
-				returnUnit: returnUnit
+				returnUnit: returnUnit,
+				string: returnString
 			});
 		}
 
