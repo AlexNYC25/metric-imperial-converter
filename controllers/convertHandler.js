@@ -78,7 +78,7 @@ function ConvertHandler() {
 			return 1;
 		}
 		
-		return mathjs.round(mathjs.evaluate(result), 5);
+		return mathjs.round(mathjs.evaluate(result), 6);
 	};
   
 	// finished inital version, needs tests written
