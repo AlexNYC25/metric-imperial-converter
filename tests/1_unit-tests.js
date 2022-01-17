@@ -28,7 +28,7 @@ suite('Decimal numbers should be recognized.', function(){
     })
 
     test("12.33333mi should be 12.33333.", function(){
-        assert.equal(convertHandler.getNum("12.33333mi"), 12.33333);
+        assert.equal(convertHandler.getNum("12.333333mi"), 12.333333);
     })
 });
 
@@ -42,7 +42,7 @@ suite('Fractional numbers should be recognized, roundes to 5 places.', function(
     })
 
     test('1/3kg should be .33333.', function(){
-        assert.equal(convertHandler.getNum('1/3kg'), .33333);
+        assert.equal(convertHandler.getNum('1/3kg'), .333333);
     })
 })
 
