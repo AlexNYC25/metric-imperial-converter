@@ -16,15 +16,15 @@ module.exports = function (app) {
 		let returnUnit = convertHandler.getReturnUnit(initUnit);
 
 		if(initNum === null && initUnit === null) {
-			return res.status(400).json('invalid number and unit');
+			return res.status(400).json({error: 'invalid number and unit'});
 		} else if(initNum === null) {
-			return res.status(400).json('invalid number');
+			return res.status(400).json({error: 'invalid number'});
 		} else if(initUnit === null) {
-			return res.status(400).json('invalid unit');
+			return res.status(400).json({error: 'invalid unit'});
 		} else if(returnNum === null) {
-			return res.status(400).json('invalid number');
+			return res.status(400).json({error: 'invalid number'});
 		} else if(returnUnit === null) {
-			return res.status(400).json('invalid unit');
+			return res.status(400).json({error: 'invalid unit'});
 		} else {
 			return res.status(200).json({
 				initNum: initNum,
