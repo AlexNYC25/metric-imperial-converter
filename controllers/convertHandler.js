@@ -113,8 +113,9 @@ function ConvertHandler() {
 		let result = null;
 
 		// convert to lower case
-		initUnit = initUnit.toLowerCase();
-
+		if(initUnit !== null) {
+			initUnit = initUnit.toLowerCase();
+		}
 		// check if the string is one of the valid units
 		if(initUnit === "gal" || initUnit === "l" || initUnit === "mi" || initUnit === "km" || initUnit === "lbs" || initUnit === "kg" || initUnit === "GAL" || initUnit === "L" || initUnit === "MI" || initUnit === "KM" || initUnit === "LBS" || initUnit === "KG") {
 			if(initUnit === "gal") {
@@ -168,7 +169,9 @@ function ConvertHandler() {
 	let result = null;
 
 	// convert to lower case
-	initUnit = initUnit.toLowerCase();
+	if(initUnit !== null) {
+		initUnit = initUnit.toLowerCase();
+	}
 
 	// check if the string is one of the valid units
 	if(initUnit === "gal" || initUnit === "l" || initUnit === "mi" || initUnit === "km" || initUnit === "lbs" || initUnit === "kg" || initUnit === "GAL" || initUnit === "L" || initUnit === "MI" || initUnit === "KM" || initUnit === "LBS" || initUnit === "KG") {
