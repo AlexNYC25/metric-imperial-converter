@@ -186,23 +186,25 @@ function ConvertHandler() {
 	if(initUnit === "gal" || initUnit === "l" || initUnit === "mi" || initUnit === "km" || initUnit === "lbs" || initUnit === "kg" || initUnit === "GAL" || initUnit === "L" || initUnit === "MI" || initUnit === "KM" || initUnit === "LBS" || initUnit === "KG") {
 		if(initUnit === "gal") {
 			result = initNum * galToL;
+			return mathjs.round(mathjs.evaluate(result), 6);
 		} else if(initUnit === "l") {
 			result = initNum / galToL;
 			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "mi") {
 			result = initNum * miToKm;
+			return mathjs.round(mathjs.evaluate(result), 6);
 		} else if(initUnit === "km") {
 			result = initNum / miToKm;
 			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "lbs") {
 			result = initNum * lbsToKg;
-			return mathjs.round(mathjs.evaluate(result), 5);
+			return mathjs.round(mathjs.evaluate(result), 6);
 		} else if(initUnit === "kg") {
 			result = initNum / lbsToKg;
+			return mathjs.round(mathjs.evaluate(result), 5);
 		}
 	}
 	
-	return mathjs.round(mathjs.evaluate(result), 6);
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
