@@ -199,7 +199,7 @@ function ConvertHandler() {
 		}
 	}
 	
-	return result;
+	return mathjs.round(mathjs.evaluate(result), 6);
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
