@@ -50,17 +50,15 @@ function ConvertHandler() {
 			// find the index of the division sign
 			let index = result.indexOf("/");
 			
+
 			// check if there is a number after the division sign
 			if(isNaN(result[index + 1])) {
 				return null;
 			}
+		}
 
-			// checks too see if the number after the division sign is not a decimal number
-			for(let i = index + 1; i < result.length; i++) {
-				if(isNaN(result[i])) {
-					return null;
-				}
-			}
+		if(countOccurrences(result, "/") > 1) {
+			return null;
 		}
 
 		// check if there is a number after the decimal point
@@ -78,7 +76,7 @@ function ConvertHandler() {
 			return 1;
 		}
 		
-		return mathjs.round(mathjs.evaluate(result), 14);
+		return mathjs.evaluate(result)
 	};
   
 	// finished inital version, needs tests written
@@ -198,7 +196,7 @@ function ConvertHandler() {
 			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "lbs") {
 			result = initNum * lbsToKg;
-			return mathjs.round(mathjs.evaluate(result), 6);
+			return mathjs.round(mathjs.evaluate(result), 5);
 		} else if(initUnit === "kg") {
 			result = initNum / lbsToKg;
 			return mathjs.round(mathjs.evaluate(result), 5);
