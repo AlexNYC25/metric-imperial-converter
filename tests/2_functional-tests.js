@@ -26,8 +26,7 @@ suite('Testing /api/convert route', function() {
             .get('/api/convert')
             .query({ input: '32g' })
             .end(function(err, res) {
-                assert.equal(res.status, 400 );
-                assert.equal(res.body.error, 'invalid unit');
+                assert.equal(res.text, 'invalid unit');
             }
         );
     })
@@ -37,8 +36,7 @@ suite('Testing /api/convert route', function() {
             .get('/api/convert')
             .query({ input: '3/7.2/4kg' })
             .end(function(err, res) {
-                assert.equal(res.status, 400 );
-                assert.equal(res.body.error, 'invalid number');
+                assert.equal(res.text, 'invalid number');
             }
         );
     })
@@ -48,8 +46,7 @@ suite('Testing /api/convert route', function() {
             .get('/api/convert')
             .query({ input: '3/7.2/4kilomegagram' })
             .end(function(err, res) {
-                assert.equal(res.status, 400 );
-                assert.equal(res.body.error, 'invalid number and unit');
+                assert.equal(res.text, 'invalid number and unit');
             }
         );
     })
