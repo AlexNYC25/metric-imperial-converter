@@ -5,7 +5,7 @@ const server = require('../server');
 
 chai.use(chaiHttp);
 
-suite('Testing /api/convert route', function() {
+suite('Functional Tests', function() {
 
     test("10L should return valid object", function(){
         chai.request(server)

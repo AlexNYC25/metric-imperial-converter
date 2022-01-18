@@ -4,7 +4,7 @@ const ConvertHandler = require('../controllers/convertHandler.js');
 
 let convertHandler = new ConvertHandler();
 
-suite('Whole numnbers should be recognized.', function(){
+suite('Unit Tests', function(){
     test("32L should be 32.", function(){
         assert.equal(convertHandler.getNum("32L"), 32);
     })
@@ -16,9 +16,7 @@ suite('Whole numnbers should be recognized.', function(){
     test("34kg should be 34.", function(){
         assert.equal(convertHandler.getNum("34kg"), 34);
     })
-});
 
-suite('Decimal numbers should be recognized.', function(){
     test("3.14kg should be 3.14.", function(){
         assert.equal(convertHandler.getNum("3.14kg"), 3.14);
     })
@@ -30,9 +28,7 @@ suite('Decimal numbers should be recognized.', function(){
     test("12.33333mi should be 12.33333.", function(){
         assert.equal(convertHandler.getNum("12.333333mi"), 12.333333);
     })
-});
 
-suite('Fractional numbers should be recognized, roundes to 5 places.', function(){
     test('1/2lb should be .5.', function(){
         assert.equal(convertHandler.getNum('1/2lb'), .5);
     })
@@ -44,10 +40,7 @@ suite('Fractional numbers should be recognized, roundes to 5 places.', function(
     test('1/3kg should be .33333.', function(){
         assert.equal(convertHandler.getNum('1/3kg'), 0.3333333333333333);
     })
-})
 
-
-suite('Fractional numbers with decimal numbers in numerator should be recognized', function(){
     test('1.5/3 should be .5', function(){
         assert.equal(convertHandler.getNum('1.5/3mi'), .5);
     })
@@ -59,10 +52,7 @@ suite('Fractional numbers with decimal numbers in numerator should be recognized
     test('50.005/5 should be 10.001', function(){
         assert.equal(convertHandler.getNum('50.005/5mi'), 10.001000000000001);   
     })
-})
 
-
-suite('Multiple / should result in an error(null)', function(){
     test('1/2/3 should be null', function(){
         assert.equal(convertHandler.getNum('1/2/3mi'), null);
     })
@@ -74,9 +64,7 @@ suite('Multiple / should result in an error(null)', function(){
     test('1/2/3/4/5 should be null', function(){
         assert.equal(convertHandler.getNum('1/2/3/4/5L'), null);
     })
-})
 
-suite('No numerical value is provided, default return 1', function(){
     test('mi should be 1', function(){
         assert.equal(convertHandler.getNum('mi'), 1);
     })
@@ -88,9 +76,7 @@ suite('No numerical value is provided, default return 1', function(){
     test('L should be 1', function(){
         assert.equal(convertHandler.getNum('L'), 1);
     })
-})
 
-suite('All valid inputs are recognized.', function(){
     test("3mi should return mi", function(){
         assert.equal(convertHandler.getUnit("3mi"), "mi");
     })
@@ -115,9 +101,6 @@ suite('All valid inputs are recognized.', function(){
         assert.equal(convertHandler.getUnit("3L"), "L");
     })
 
-})
-
-suite('An error should occur when an invalid unit is passed.', function(){
     test("5in should return null", function(){
         assert.equal(convertHandler.getUnit("5in"), null);   
     })
@@ -129,9 +112,7 @@ suite('An error should occur when an invalid unit is passed.', function(){
     test("5ft should return null", function(){
         assert.equal(convertHandler.getUnit("5ft"), null);
     })
-})
 
-suite("The correct corrsponding unit should be returned in the imperial-metric relationship", function(){
     test("4gal should return L", function(){
         assert.equal(convertHandler.getReturnUnit(convertHandler.getUnit("4gal")), "L");
     })
@@ -155,9 +136,7 @@ suite("The correct corrsponding unit should be returned in the imperial-metric r
     test("4kg should return lbs", function(){
         assert.equal(convertHandler.getReturnUnit(convertHandler.getUnit("4kg")), "lbs");
     })
-})
 
-suite("The spelling of the unit is correct", function(){
     test("4km should return km", function(){
         assert.equal(convertHandler.spellOutUnit(convertHandler.getUnit("4km")), "kilometers");
     })
@@ -181,4 +160,7 @@ suite("The spelling of the unit is correct", function(){
     test("5gal should return gallons", function(){
         assert.equal(convertHandler.spellOutUnit(convertHandler.getUnit("5gal")), "gallons");
     })
-})
+});
+
+
+
