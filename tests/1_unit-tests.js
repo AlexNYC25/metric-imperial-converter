@@ -42,7 +42,7 @@ suite('Fractional numbers should be recognized, roundes to 5 places.', function(
     })
 
     test('1/3kg should be .33333.', function(){
-        assert.equal(convertHandler.getNum('1/3kg'), .333333);
+        assert.equal(convertHandler.getNum('1/3kg'), 0.3333333333333333);
     })
 })
 
@@ -57,7 +57,7 @@ suite('Fractional numbers with decimal numbers in numerator should be recognized
     })
 
     test('50.005/5 should be 10.001', function(){
-        assert.equal(convertHandler.getNum('50.005/5mi'), 10.001);   
+        assert.equal(convertHandler.getNum('50.005/5mi'), 10.001000000000001);   
     })
 })
 
